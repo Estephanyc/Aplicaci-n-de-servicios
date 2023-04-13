@@ -1,0 +1,20 @@
+
+
+body{
+    overflow: hidden;
+    font-family: 'Muli', sans-serif;
+    font-weight: 300;
+    color: var(--primary);
+}
+:root {
+    --primary: #111B54; 
+    --light: #ffffff; 
+    --gray: #efefef;
+}
+
+
+a:link{
+    text-decoration: none;
+}
+
+.bg-primary {background-color: #111B54 !important;}
