@@ -3,7 +3,6 @@
 content: "";
 flex: 1;
 height: 1px;
-background: #1976d2;
 }
 .h-custom {
 height: 100%;
@@ -12,10 +11,6 @@ height: 100%;
 .h-custom {
 height: 100%;
 }
-}
-
-body{
-  background: #1976d2;
 }
 
 .form{
