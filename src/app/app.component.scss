@@ -9,7 +9,7 @@ body{
 :root {
     --primary: #111B54; 
     --light: #ffffff; 
-    --gray: #efefef;
+    --gray: #efefef; 
 }
 
 
@@ -17,4 +17,4 @@ a:link{
     text-decoration: none;
 }
 
-.bg-primary {background-color: #111B54 !important;}
+.bg-primary {background-color: var(--primary)  !important;};
