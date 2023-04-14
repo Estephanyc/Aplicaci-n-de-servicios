@@ -6,7 +6,7 @@ import { MenuComponent } from "./menu/menu.component";
 
 
 const appRoutes = [
-  {path : '', component : AppComponent},
+  {path : 'home', component : AppComponent},
   { path: "login", component: LoginComponent},
   { path: "menu", component: MenuComponent}
 
