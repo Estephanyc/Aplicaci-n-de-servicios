@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../services/http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,8 @@ import { HttpService } from '../services/http.service';
 export class LoginComponent {
   usuario: string = '';
   password: string = '';
-
-  constructor(private httpService: HttpService) {}
+  usuarioinvalido = false;
+  constructor(private httpService: HttpService, private router:Router) {}
 
   login() {
     console.log(this.usuario);
@@ -18,8 +19,13 @@ export class LoginComponent {
 
     this.httpService
       .validateUser(this.usuario, this.password)
-      .subscribe((response) => {
+      .subscribe((response:any) => {
         console.log(response);
+        if(response.data.status){
+           this.router.navigate(["/home"])
+        }else{
+          this.usuarioinvalido = true;
+        }
       });
   }
 }

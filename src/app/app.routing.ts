@@ -7,7 +7,7 @@ import { EliminarFactComponent } from "./page/facturacion/eliminar-fact/eliminar
 
 
 const appRoutes = [
-  {path : '', component : AppComponent},
+  {path : 'home', component : AppComponent},
   { path: "login", component: LoginComponent},
   { path: "menu", component: MenuComponent}, 
   { path: "facturacion/eliminarfact" , component:EliminarFactComponent}
