@@ -17,6 +17,8 @@ export class LoginComponent {
     console.log(this.usuario);
     console.log(this.password);
 
+
+
     this.httpService
       .validateUser(this.usuario, this.password)
       .subscribe((response:any) => {
@@ -27,5 +29,8 @@ export class LoginComponent {
           this.usuarioinvalido = true;
         }
       });
+
+
   }
+
 }
