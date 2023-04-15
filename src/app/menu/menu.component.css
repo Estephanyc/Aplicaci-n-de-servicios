@@ -11,4 +11,19 @@
     width: 18rem;
 }
 
+.accordion-body{background-color: #ffff;}
+
+.accordion-button.collapsed {
+    color: #ffffff;
+    background: #111B54;
+ 
+}
+
+
+
+a:link{
+    text-decoration: none;   
+}
+
 .bg-primary {background-color: #111B54 !important;};
+
