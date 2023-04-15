@@ -1,0 +1,12 @@
+#content{
+
+    overflow-y: auto;
+    height: 100vh;
+    padding-bottom: 5rem;
+}
+
+.btn-primary{
+    background-color:#111B54 !important;
+    border: 0;
+}
+
