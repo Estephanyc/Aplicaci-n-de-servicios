@@ -54,3 +54,7 @@ export class LoginComponent {
 }
 
 
+function registrarAuditoria(id_usuario: any, arg1: string, arg2: string, arg3: string) {
+  throw new Error('Function not implemented.');
+}
+
