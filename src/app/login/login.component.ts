@@ -42,13 +42,14 @@ export class LoginComponent {
       .subscribe((response: any) => {
         console.log(response);
         if (response.data.status) {
+          registrarAuditoria(response.data.user.id_usuario, 'AUD004', 'M001', 'Inicio de sesión exitoso.');
           this.router.navigate(['/home']);
         } else {
           this.usuarioinvalido = true;
         }
       });
 
-    }
+  }
 
 }
 
