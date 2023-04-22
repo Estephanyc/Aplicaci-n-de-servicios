@@ -3,7 +3,7 @@ import { HttpService } from '../services/http.service';
 import { Router } from '@angular/router';
 import { EncrDecrServiceService } from '../services/encr-decr-service.service';
 import { empty } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -42,8 +42,7 @@ export class LoginComponent {
       .subscribe((response: any) => {
         console.log(response);
         if (response.data.status) {
-          registrarAuditoria(response.data.user.id_usuario, 'AUD004', 'M001', 'Inicio de sesión exitoso.');
-          this.router.navigate(['/home']);
+               this.router.navigate(['/home']);
         } else {
           this.usuarioinvalido = true;
         }
@@ -53,8 +52,4 @@ export class LoginComponent {
 
 }
 
-
-function registrarAuditoria(id_usuario: any, arg1: string, arg2: string, arg3: string) {
-  throw new Error('Function not implemented.');
-}
 
