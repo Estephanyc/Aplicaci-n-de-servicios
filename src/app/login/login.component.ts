@@ -13,7 +13,9 @@ import { User } from '../interface/user.interface';
 export class LoginComponent {
   usuario: string = '';
   password: string = '';
-  usuarioinvalido = false;
+
+  usuarioInvalido = false;
+  usuarioNoActivo = false;
 
   userObject: User = {};
 
@@ -27,11 +29,8 @@ export class LoginComponent {
   ) {}
 
   login() {
-    console.log(this.usuario);
-    console.log(this.password);
-
     if (this.usuario.trim() === '' || this.password.trim() === '') {
-      console.log('Por favor, ingrese un usuario y contraseña válidos.');
+      this.usuarioInvalido = true;
       return;
     }
 
@@ -39,17 +38,18 @@ export class LoginComponent {
       this.password
     );
 
-    console.log('encrypted pass', encryptedPassword);
-
     this.httpService
       .validateUser(this.usuario, encryptedPassword)
       .subscribe((response: any) => {
-        console.log(response);
         if (response.data.status) {
           this.userObject = response.data.data;
           this.registrarAuditoria();
         } else {
-          this.usuarioinvalido = true;
+          if (response.data.code === 401) {
+            this.usuarioNoActivo = true;
+          } else if (response.data.code === 403) {
+            this.usuarioInvalido = true;
+          }
         }
       });
   }
