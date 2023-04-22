@@ -16,6 +16,8 @@ export class LoginComponent {
 
   usuarioInvalido = false;
   usuarioNoActivo = false;
+  usuarioBloqueado = false;
+  contrasenaInvalida = false;
 
   userObject: User = {};
 
@@ -47,8 +49,12 @@ export class LoginComponent {
         } else {
           if (response.data.code === 401) {
             this.usuarioNoActivo = true;
-          } else if (response.data.code === 403) {
+          } else if (response.data.code === 404) {
             this.usuarioInvalido = true;
+          } else if (response.data.code === 403) {
+            this.contrasenaInvalida = true;
+          } else if (response.data.code === 405) {
+            this.usuarioBloqueado = true;
           }
         }
       });
