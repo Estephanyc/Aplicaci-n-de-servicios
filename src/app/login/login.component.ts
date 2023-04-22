@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../services/http.service';
 import { Router } from '@angular/router';
 import { EncrDecrServiceService } from '../services/encr-decr-service.service';
-import { empty } from 'rxjs';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppService } from '../services/app.service';
+import { User } from '../interface/user.interface';
 
 @Component({
   selector: 'app-login',
@@ -15,14 +15,18 @@ export class LoginComponent {
   password: string = '';
   usuarioinvalido = false;
 
+  userObject: User = {};
+
+  title: string = '';
+
   constructor(
     private httpService: HttpService,
     private router: Router,
-    private encrDecrServiceService: EncrDecrServiceService
+    private encrDecrServiceService: EncrDecrServiceService,
+    public appService: AppService
   ) {}
 
   login() {
-
     console.log(this.usuario);
     console.log(this.password);
 
@@ -42,19 +46,26 @@ export class LoginComponent {
       .subscribe((response: any) => {
         console.log(response);
         if (response.data.status) {
-          registrarAuditoria(response.data.user.id_usuario, 'AUD004', 'M001', 'Inicio de sesión exitoso.');
-          this.router.navigate(['/home']);
+          this.userObject = response.data.data;
+          this.registrarAuditoria();
         } else {
           this.usuarioinvalido = true;
         }
       });
-
   }
 
+  registrarAuditoria() {
+    const infoAuditoria = {
+      id_usuario: this.userObject.id_usuario,
+      modulo: 'M001',
+      tipo_auditoria: 'AUD001',
+      mensaje: 'Inicio de sesión exitoso.',
+    };
+
+    this.httpService
+      .registrarAuditoria(infoAuditoria)
+      .subscribe((response: any) => {
+        this.router.navigate(['/home']);
+      });
+  }
 }
-
-
-function registrarAuditoria(id_usuario: any, arg1: string, arg2: string, arg3: string) {
-  throw new Error('Function not implemented.');
-}
-
