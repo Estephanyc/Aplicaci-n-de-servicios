@@ -46,6 +46,7 @@ export class LoginComponent {
         if (response.data.status) {
           this.userObject = response.data.data;
           this.registrarAuditoria();
+          this.appService.setUser(response.data.data);
         } else {
           if (response.data.code === 401) {
             this.usuarioNoActivo = true;

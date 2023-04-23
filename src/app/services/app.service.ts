@@ -6,16 +6,21 @@ import { HttpService } from './http.service';
 })
 export class AppService {
   public app: any;
+  public user: any;
+
   constructor(private httpService: HttpService) {}
 
   getApp() {
     this.httpService.getApp().subscribe((response: any) => {
-      console.log(response);
       if (response.data.status) {
         this.app = response.data.data;
-        console.log(response);
       } else {
       }
     });
+  }
+
+  setUser(data: any) {
+    this.user = data;
+    console.log('user', this.user);
   }
 }

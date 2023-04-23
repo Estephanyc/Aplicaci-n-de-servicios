@@ -205,14 +205,26 @@
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Dropdown
+                Cuenta
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  {{ appService.user.nombre_empresa }}
+                </li>
+                <li>
+                  <img width="30px" src="../../assets/avatar.png" />
+                  <a class="dropdown-item" href="#">{{
+                    appService.user.nombre_usuario
+                  }}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">{{
+                    appService.user.nombre_rol
+                  }}</a>
+                </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item" href="#">Logout</a>
                 </li>
               </ul>
             </li>
