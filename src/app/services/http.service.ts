@@ -32,4 +32,9 @@ export class HttpService {
     const url = this.configUrl + '/registrarAuditoria';
     return this.http.post(url, infoAuditoria);
   }
+
+  getModules(infoApp: any) {
+    const url = this.configUrl + '/modules';
+    return this.http.post(url, infoApp);
+  }
 }
