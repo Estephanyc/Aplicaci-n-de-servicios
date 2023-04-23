@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../services/app.service';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,22 @@ import { AppService } from '../services/app.service';
   styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
-  constructor(public appService: AppService) {}
+  constructor(
+    private httpService: HttpService,
+    public appService: AppService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getModules();
+  }
+
+  getModules() {
+    const infoApp = {
+      id_app: 'APP001',
+    };
+
+    this.httpService.getModules(infoApp).subscribe((response: any) => {
+      console.log(response);
+    });
+  }
 }
