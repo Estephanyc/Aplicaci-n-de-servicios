@@ -27,7 +27,7 @@
           >
             <div class="accordion-body">
               <a
-                href="#"
+                [routerLink]="opcion.componente"
                 class="d-block p-3"
                 *ngFor="let opcion of getOpciones(item.key)"
                 >{{ opcion.nombre_opcion }}</a
