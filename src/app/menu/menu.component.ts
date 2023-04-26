@@ -8,6 +8,8 @@ import { HttpService } from '../services/http.service';
   styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
+  modules: any;
+
   constructor(
     private httpService: HttpService,
     public appService: AppService
@@ -23,7 +25,25 @@ export class MenuComponent implements OnInit {
     };
 
     this.httpService.getModules(infoApp).subscribe((response: any) => {
-      console.log(response);
+      const result = response.data.data.reduce((acc: any, obj: any) => {
+        if (!acc[obj.nombre_modulo]) acc[obj.nombre_modulo] = {};
+        if (!acc[obj.nombre_modulo]['opciones'])
+          acc[obj.nombre_modulo]['opciones'] = [];
+        acc[obj.nombre_modulo]['opciones'].push(obj);
+        acc[obj.nombre_modulo]['icono'] = obj.icono;
+
+        return acc;
+      }, {});
+      this.modules = result;
+      console.log(this.modules);
     });
+  }
+
+  getOpciones(key: any) {
+    return this.modules[key].opciones;
+  }
+
+  getIcon(key: any) {
+    return this.modules[key].icono;
   }
 }
