@@ -1,27 +1,32 @@
-
-#sidebar-container{
-    min-height: 100vh;
+#sidebar-container {
+  min-height: 100vh;
 }
 
-#sidebar-container .logo{
- padding: .875rem 1.25rem; 
+#sidebar-container .logo {
+  padding: 0.875rem 1.25rem;
 }
 
 #sidebar-container .menu {
-    width: 18rem;
+  width: 18rem;
 }
 
-.accordion-body{background-color: #ffff;}
+.accordion-body {
+  background-color: #ffff;
+}
 
 .accordion-button.collapsed {
-    color: #ffffff;
-    background: #111B54;
- 
+  color: #ffffff;
+  background: #111b54;
 }
 
-a:link{
-    text-decoration: none;   
+a:link {
+  text-decoration: none;
 }
 
-.bg-primary {background-color: #111B54 !important;};
+.bg-primary {
+  background-color: #111b54 !important;
+}
 
+.container-pages {
+  padding: 80px;
+}

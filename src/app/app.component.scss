@@ -1,20 +1,19 @@
-
-
-body{
-    overflow: hidden;
-    font-family: 'Muli', sans-serif;
-    font-weight: 300;
-    color: var(--primary);
+body {
+  overflow: hidden;
+  font-family: "Muli", sans-serif;
+  font-weight: 300;
+  color: var(--primary);
 }
 :root {
-    --primary: #111B54; 
-    --light: #ffffff; 
-    --gray: #efefef; 
+  --primary: #111b54;
+  --light: #ffffff;
+  --gray: #efefef;
 }
 
-
-a:link{
-    text-decoration: none;
+a:link {
+  text-decoration: none;
 }
 
-.bg-primary {background-color: var(--primary)  !important;};
+.bg-primary {
+  background-color: var(--primary) !important;
+}
