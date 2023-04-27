@@ -28,6 +28,10 @@ import { HistorialNotComponent } from './page/notificaciones/historial-not/histo
 import { MensajeriaConfigComponent } from './page/notificaciones/mensajeria-config/mensajeria-config.component';
 import { ConfigFacturacionComponent } from './page/configuracion/config-facturacion/config-facturacion.component';
 import { ConfigClienteComponent } from './page/configuracion/config-cliente/config-cliente.component';
+import { MantenedorIVAComponent } from './parametros/mantenedor-iva/mantenedor-iva.component';
+import { MantenedortasaComponent } from './parametros/mantenedortasa/mantenedortasa.component';
+import { MantenedorvaloresComponent } from './parametros/mantenedorvalores/mantenedorvalores.component';
+import { MantenedorivaComponent } from './page/parametros/mantenedoriva/mantenedoriva.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +59,10 @@ import { ConfigClienteComponent } from './page/configuracion/config-cliente/conf
     MensajeriaConfigComponent,
     ConfigFacturacionComponent,
     ConfigClienteComponent,
+    MantenedorIVAComponent,
+    MantenedortasaComponent,
+    MantenedorvaloresComponent,
+    MantenedorivaComponent,
   ],
   imports: [BrowserModule, routing, HttpClientModule, FormsModule],
   providers: [],
