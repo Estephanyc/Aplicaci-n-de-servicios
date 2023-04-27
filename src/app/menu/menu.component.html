@@ -70,17 +70,27 @@
                 Cuenta
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  {{ appService.user.nombre_empresa }}
+                <li class="dropdown-item">
+                  <h5>
+                    {{ appService.user.nombre_empresa }}
+                  </h5>
                 </li>
                 <li>
-                  <img width="30px" src="../../assets/avatar.png" />
-                  <a class="dropdown-item" href="#">{{
-                    appService.user.nombre_usuario
-                  }}</a>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-2">
+                        <img width="30px" src="../../assets/avatar.png" />
+                      </div>
+                      <div class="col-10">
+                        <a class="dropdown-item" href="#">
+                          {{ appService.user.nombre_usuario }}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">{{
+                  <a class="dropdown-item text-primary" href="#">{{
                     appService.user.nombre_rol
                   }}</a>
                 </li>

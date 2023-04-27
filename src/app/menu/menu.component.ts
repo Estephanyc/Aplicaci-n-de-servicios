@@ -21,7 +21,8 @@ export class MenuComponent implements OnInit {
 
   getModules() {
     const infoApp = {
-      id_app: 'APP001',
+      id_app: this.appService.user.id_app,
+      id_usuario: this.appService.user.id_usuario,
     };
 
     this.httpService.getModules(infoApp).subscribe((response: any) => {
