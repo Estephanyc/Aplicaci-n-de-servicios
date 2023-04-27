@@ -22,6 +22,9 @@ import { HistorialVentaComponent } from "./page/historial/historial-venta/histor
 import { HistorialClienteComponent } from "./page/historial/historial-cliente/historial-cliente.component";
 import { HistorialModificacionesComponent } from "./page/historial/historial-modificaciones/historial-modificaciones.component";
 import { ConfigFacturacionComponent } from './page/configuracion/config-facturacion/config-facturacion.component';
+import { MantenedorivaComponent } from "./page/parametros/mantenedoriva/mantenedoriva.component";
+import { MantenedortasaComponent } from './page/parametros/mantenedortasa/mantenedortasa.component';
+import { MantenedorvaloresComponent } from "./page/parametros/mantenedorvalores/mantenedorvalores.component";
 
 
 const appRoutes = [
@@ -45,13 +48,11 @@ const appRoutes = [
     { path: "notificaciones/notificacionesrecientes" , component:NotRecientesComponent},
     { path: "notificaciones/configuracion-not", component: MensajeriaConfigComponent},
     { path: "notificaciones/notificacions-solicitudes", component: NotSolicitudesComponent}, 
-    { path: "configuracion/facturacion-config", component:ConfigFacturacionComponent}
-
-
-  ]},
-
+    { path: "configuracion/facturacion-config", component:ConfigFacturacionComponent}, 
+    { path: "parametros/mantenedor-iva", Component: MantenedorivaComponent}, 
+    { path: "parametros/mantenedor-tasa", Component: MantenedortasaComponent}, 
+    { path: "parametros/mantenedor-valores", Component: MantenedorvaloresComponent}
+]}
 ];
-
-
 export const routing = RouterModule.forRoot(appRoutes);
 
