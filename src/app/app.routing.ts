@@ -74,14 +74,14 @@ const appRoutes = [
         path: 'configuracion/facturacion-config',
         component: ConfigFacturacionComponent,
       },
-      { path: 'parametros/mantenedor-iva', Component: MantenedorivaComponent },
+      { path: 'parametros/mantenedor-iva', component: MantenedorivaComponent },
       {
         path: 'parametros/mantenedor-tasa',
-        Component: MantenedortasaComponent,
+        component: MantenedortasaComponent,
       },
       {
         path: 'parametros/mantenedor-valores',
-        Component: MantenedorvaloresComponent,
+        component: MantenedorvaloresComponent,
       },
     ],
   },
