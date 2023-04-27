@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AComponent } from './a.component';
+import { MantenedortasaComponent } from './mantenedortasa.component';
 
-describe('AComponent', () => {
-  let component: AComponent;
-  let fixture: ComponentFixture<AComponent>;
+describe('MantenedortasaComponent', () => {
+  let component: MantenedortasaComponent;
+  let fixture: ComponentFixture<MantenedortasaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AComponent ]
+      declarations: [ MantenedortasaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AComponent);
+    fixture = TestBed.createComponent(MantenedortasaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
