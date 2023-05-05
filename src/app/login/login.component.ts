@@ -22,6 +22,7 @@ export class LoginComponent {
   userObject: User = {};
 
   title: string = '';
+  moduloLogin = 'M001';
 
   constructor(
     private httpService: HttpService,
@@ -45,8 +46,17 @@ export class LoginComponent {
       .subscribe((response: any) => {
         if (response.data.status) {
           this.userObject = response.data.data;
-          this.registrarAuditoria();
+
+          const tipoAuditoria = 'AUD001';
+          const mensaje = 'Inicio de sesión exitoso.';
+          this.appService.registrarAuditoria(
+            tipoAuditoria,
+            mensaje,
+            this.moduloLogin
+          );
+
           this.appService.setUser(response.data.data);
+          this.router.navigate(['/home']);
         } else {
           if (response.data.code === 401) {
             this.usuarioNoActivo = true;
@@ -54,25 +64,26 @@ export class LoginComponent {
             this.usuarioInvalido = true;
           } else if (response.data.code === 403) {
             this.contrasenaInvalida = true;
+
+            const tipoAuditoria = 'AUD003';
+            const mensaje = 'Usuario iniciando sesión con clave incorrecta';
+            this.appService.registrarAuditoria(
+              tipoAuditoria,
+              mensaje,
+              this.moduloLogin
+            );
           } else if (response.data.code === 405) {
             this.usuarioBloqueado = true;
+
+            const tipoAuditoria = 'AUD002';
+            const mensaje = 'Usuario bloqueado intentando iniciar sesión';
+            this.appService.registrarAuditoria(
+              tipoAuditoria,
+              mensaje,
+              this.moduloLogin
+            );
           }
         }
-      });
-  }
-
-  registrarAuditoria() {
-    const infoAuditoria = {
-      id_usuario: this.userObject.id_usuario,
-      modulo: 'M001',
-      tipo_auditoria: 'AUD001',
-      mensaje: 'Inicio de sesión exitoso.',
-    };
-
-    this.httpService
-      .registrarAuditoria(infoAuditoria)
-      .subscribe((response: any) => {
-        this.router.navigate(['/home']);
       });
   }
 }

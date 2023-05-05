@@ -23,4 +23,19 @@ export class AppService {
     this.user = data;
     console.log('user', this.user);
   }
+
+  registrarAuditoria(tipoAuditoria: string, mensaje: string, modulo: string) {
+    const infoAuditoria = {
+      id_usuario: '1',
+      modulo: modulo,
+      tipo_auditoria: tipoAuditoria,
+      mensaje: mensaje,
+    };
+
+    this.httpService
+      .registrarAuditoria(infoAuditoria)
+      .subscribe((response: any) => {
+        console.log('auditoria registrada', infoAuditoria);
+      });
+  }
 }

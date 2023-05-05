@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../services/app.service';
 import { HttpService } from '../services/http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -9,10 +10,12 @@ import { HttpService } from '../services/http.service';
 })
 export class MenuComponent implements OnInit {
   modules: any;
+  moduloLogin = 'M001';
 
   constructor(
     private httpService: HttpService,
-    public appService: AppService
+    public appService: AppService,
+    private route: Router
   ) {}
 
   ngOnInit(): void {
@@ -46,5 +49,22 @@ export class MenuComponent implements OnInit {
 
   getIcon(key: any) {
     return this.modules[key].icono;
+  }
+
+  goToOption(opcion: any) {
+    const tipoAuditoria = 'AUD002';
+    const mensaje =
+      'Usuario ingresando a la opcion ' +
+      opcion.nombre_opcion +
+      ' del módulo ' +
+      opcion.id_modulo;
+
+    this.appService.registrarAuditoria(
+      tipoAuditoria,
+      mensaje,
+      opcion.id_modulo
+    );
+
+    this.route.navigateByUrl('home/' + opcion.componente);
   }
 }

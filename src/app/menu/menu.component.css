@@ -30,3 +30,7 @@ a:link {
 .container-pages {
   padding: 80px;
 }
+
+.link {
+  cursor: pointer;
+}
