@@ -22,7 +22,7 @@ export class LoginComponent {
   userObject: User = {};
 
   title: string = '';
-  moduloLogin = 'M001';
+  moduloLogin = 'M008';
 
   constructor(
     private httpService: HttpService,
