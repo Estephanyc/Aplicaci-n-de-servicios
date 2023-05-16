@@ -26,7 +26,7 @@ export class AppService {
 
   registrarAuditoria(tipoAuditoria: string, mensaje: string, modulo: string) {
     const infoAuditoria = {
-      id_usuario: '1',
+      id_usuario: this.user.id_usuario,
       modulo: modulo,
       tipo_auditoria: tipoAuditoria,
       mensaje: mensaje,

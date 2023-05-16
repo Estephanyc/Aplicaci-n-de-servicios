@@ -52,7 +52,7 @@ export class MenuComponent implements OnInit {
   }
 
   goToOption(opcion: any) {
-    const tipoAuditoria = 'AUD002';
+    const tipoAuditoria = 'AUD001';
     const mensaje =
       'Usuario ingresando a la opcion ' +
       opcion.nombre_opcion +

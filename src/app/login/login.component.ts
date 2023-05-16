@@ -44,6 +44,8 @@ export class LoginComponent {
     this.httpService
       .validateUser(this.usuario, encryptedPassword)
       .subscribe((response: any) => {
+        this.appService.setUser(response.data.data);
+
         if (response.data.status) {
           this.userObject = response.data.data;
 
@@ -55,11 +57,18 @@ export class LoginComponent {
             this.moduloLogin
           );
 
-          this.appService.setUser(response.data.data);
           this.router.navigate(['/home']);
         } else {
           if (response.data.code === 401) {
-            this.usuarioNoActivo = true;
+            this.usuarioBloqueado = true;
+
+            const tipoAuditoria = 'AUD002';
+            const mensaje = 'Usuario bloqueado intentando iniciar sesión';
+            this.appService.registrarAuditoria(
+              tipoAuditoria,
+              mensaje,
+              this.moduloLogin
+            );
           } else if (response.data.code === 404) {
             this.usuarioInvalido = true;
           } else if (response.data.code === 403) {
